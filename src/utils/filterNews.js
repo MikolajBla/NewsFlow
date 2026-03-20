@@ -3,7 +3,9 @@ export function filterNews({ data, selectedCategory }) {
     data?.results?.filter(
       (news) =>
         selectedCategory === "all" ||
-        selectedCategory.toLowerCase() === news.category[0].toLowerCase(),
+        news.category?.some(
+          (cat) => cat.toLowerCase() === selectedCategory.toLowerCase(),
+        ),
     ) || []
   );
 }

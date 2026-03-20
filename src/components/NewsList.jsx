@@ -13,6 +13,7 @@ function NewsList({ filteredNews }) {
         date={news.pubDate}
         imageUrl={news.image_url}
         featured={i % 4 === 0}
+        // featured={news.category && news.category.some((cat) => cat.toLowerCase() === "top")}
         url={news.link}
       />
     ));
