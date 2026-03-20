@@ -9,14 +9,16 @@ function NewsCard({
   timeAgo,
   imageUrl,
   featured = false,
+  url,
 }) {
   return (
-    <div
+    <a
+      href={url}
       className={`group relative cursor-pointer overflow-hidden rounded-2xl border border-gray-300 bg-white shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-blue-50 ${
         featured ? "col-span-2 row-span-2" : ""
       }`}
     >
-      <ImageContainer imageUrl={imageUrl} title={title} featured={featured}>
+      <ImageContainer imageUrl={imageUrl} featured={featured}>
         <CategoryBadge category={category} />
       </ImageContainer>
 
@@ -24,7 +26,7 @@ function NewsCard({
         <div className="flex items-center gap-2 text-xs">
           <span className="font-medium text-blue-400">{source}</span>
           <span className="h-1 w-1 rounded-full bg-gray-400" />
-          <span>{new Date(timeAgo).toLocaleDateString().toString()}</span>
+          <span>{new Date(timeAgo).toLocaleDateString()}</span>
         </div>
 
         <h3
@@ -39,7 +41,7 @@ function NewsCard({
           {summary}
         </p>
       </div>
-    </div>
+    </a>
   );
 }
 

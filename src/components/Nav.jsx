@@ -7,7 +7,7 @@ import {
   FlaskConical,
 } from "lucide-react";
 
-function Nav() {
+function Nav({ setSelectedCategory, selectedCategory }) {
   const categories = [
     { id: "all", name: "All News", icon: NewspaperIcon },
     { id: "world", name: "World", icon: Globe },
@@ -30,7 +30,11 @@ function Nav() {
           Categories
         </span>
         {categories.map((cat) => (
-          <div className="mt-2 flex cursor-pointer items-center gap-2 rounded-full border border-transparent p-2 shadow-gray-300 transition-all hover:border-gray-200 hover:bg-blue-100 hover:shadow-sm">
+          <div
+            key={cat.id}
+            onClick={() => setSelectedCategory(cat.id)}
+            className={`mt-2 flex cursor-pointer items-center gap-2 rounded-full border border-transparent p-2 shadow-gray-300 transition-all hover:border-gray-200 hover:bg-blue-100 hover:shadow-sm ${selectedCategory == cat.id ? "border-gray-200 bg-blue-50 text-blue-500" : ""}`}
+          >
             <cat.icon /> {cat.name}
           </div>
         ))}
