@@ -10,7 +10,7 @@ function NewsList({ filteredNews }) {
         source={news.source_name}
         title={news.title}
         summary={news.description}
-        timeAgo={news.pubDate}
+        date={news.pubDate}
         imageUrl={news.image_url}
         featured={i % 4 === 0}
         url={news.link}

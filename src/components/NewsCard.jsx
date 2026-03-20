@@ -1,12 +1,13 @@
 import CategoryBadge from "./CategoryBadge";
 import ImageContainer from "./ImageContainer";
+import { timeAgo } from "../utils/timeAgo";
 
 function NewsCard({
   category,
   source,
   title,
   summary,
-  timeAgo,
+  date,
   imageUrl,
   featured = false,
   url,
@@ -26,7 +27,7 @@ function NewsCard({
         <div className="flex items-center gap-2 text-xs">
           <span className="font-medium text-blue-400">{source}</span>
           <span className="h-1 w-1 rounded-full bg-gray-400" />
-          <span>{new Date(timeAgo).toLocaleDateString()}</span>
+          <span>{timeAgo(date)}</span>
         </div>
 
         <h3
