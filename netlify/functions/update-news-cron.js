@@ -6,7 +6,14 @@ export default async () => {
   try {
     const apiKey = process.env.VITE_NEWS_API_KEY;
     const response = await fetch(
-      `https://newsdata.io/api/1/latest?apikey=${apiKey}&language=en&category=world,business,health,technology,science&image=1&removeduplicate=1`,
+      `https://newsdata.io/api/1/latest? 
+        ${apiKey}
+        &language=en
+        &category=business,health,science,technology,world
+        &prioritydomain=medium
+        &image=1
+        &domainurl=bbc.com,reuters.com,apnews.com,theguardian.com,npr.org
+        &removeduplicate=1`,
     );
 
     if (!response.ok) {

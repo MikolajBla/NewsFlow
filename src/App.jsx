@@ -30,7 +30,7 @@ function App() {
           ) : (
             data &&
             data.results && (
-              <div className="flex auto-rows-auto flex-col gap-6 md:grid md:grid-cols-2 lg:grid-cols-3">
+              <div className="flex grid-flow-dense auto-rows-auto flex-col gap-6 md:grid md:grid-cols-2 lg:grid-cols-3">
                 <NewsList filteredNews={filteredNews} />
               </div>
             )
